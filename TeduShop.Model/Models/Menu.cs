@@ -20,6 +20,7 @@ namespace TeduShop.Model.Models
 
         public int? DisplayOrder { get; set; }
 
+        [Required]
         public int GroupID { get; set; }
 
         [ForeignKey("GroupID")] // Tên trường mà GroupID ở trên sẽ trỏ đến trong bảng MenuGroup. Bên Menu Group cần có một IEnumeable<Menu>
