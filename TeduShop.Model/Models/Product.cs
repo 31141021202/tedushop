@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
 using TeduShop.Model.Abstract;
 
 namespace TeduShop.Model.Models
@@ -29,7 +28,8 @@ namespace TeduShop.Model.Models
         [MaxLength(256)]
         public string Image { get; set; }
 
-        public XElement MoreImages { get; set; }
+        [Column(TypeName = "xml")]
+        public string MoreImages { get; set; }
         
         public decimal Price { get; set; }
 

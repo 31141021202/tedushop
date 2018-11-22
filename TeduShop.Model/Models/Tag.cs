@@ -8,7 +8,8 @@ namespace TeduShop.Model.Models
     {
         [Key]
         [MaxLength(50)]
-        public int ID { get; set; }
+        [Column(TypeName = "varchar")]
+        public string ID { get; set; }
 
         [Required]
         [MaxLength(50)]
