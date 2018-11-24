@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using TeduShop.Model.Abstract;
+using System.Collections.Generic;
 
 namespace TeduShop.Model.Models
 {
@@ -30,5 +31,7 @@ namespace TeduShop.Model.Models
         public bool? HomeFlag { get; set; }
         public bool? HotFlag { get; set; }
         public int? ViewCount { get; set; }
+
+        //public virtual IEnumerable<PostTag> PostTags { get; set; }
     }
 }
