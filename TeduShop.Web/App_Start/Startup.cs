@@ -12,6 +12,7 @@ using TeduShop.Service;
 using System.Web.Mvc;
 using System.Web.Http;
 using Autofac.Integration.WebApi;
+using AutoMapper;
 
 [assembly: OwinStartup(typeof(TeduShop.Web.App_Start.Startup))]
 
