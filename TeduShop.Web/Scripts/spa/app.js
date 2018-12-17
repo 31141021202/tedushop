@@ -4,24 +4,28 @@
 
 myApp.controller("schoolController", schoolController);
 
+// register the directive
+
+myApp.directive("teduShopDirective", teduShopDirective);
+
 // similarly, register the service
 
-myApp.service('Validator', Validator);
+myApp.service('ValidatorService', ValidatorService);
 
-schoolController.$inject = ['$scope', 'Validator'];
+schoolController.$inject = ['$scope', 'ValidatorService'];
 
-function schoolController($scope, Validator) {
+function schoolController($scope, ValidatorService) {
     //$scope.message = "Announcement fron School";
 
     // binding event giữa view controller
     $scope.checkNumber = function () {
-        $scope.message = Validator.checkNumber($scope.num);
+        $scope.message = ValidatorService.checkNumber($scope.num);
     }
 
     $scope.num = 1;
 }
 
-function Validator($window) {
+function ValidatorService($window) {
     return {
         checkNumber: checkNumber
         // sau dấu : là tên phương thức để thao tác bên ngoài, có thể viết giống nhau như set, get ấy
@@ -34,6 +38,14 @@ function Validator($window) {
             return 'This is odd';
         }
             
+    }
+}
+
+function teduShopDirective() {
+    return {
+        restrict: "A",
+        //template: "<h1>This is my first custom directive</h1>"
+        templateUrl: "/Scripts/spa/teduShopDirective.html"
     }
 }
 

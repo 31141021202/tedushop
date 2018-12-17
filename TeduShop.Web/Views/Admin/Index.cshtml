@@ -14,6 +14,8 @@
 </head>
 <body>
     <div ng-controller="schoolController">
+        <div tedu-shop-directive></div> @*restrict: "A" ~ chỉ attribute dùng directive*@
+        @*<tedu-shop-directive></tedu-shop-directive> ko restrict*@
         <input type="number" ng-model="num" /> Value of textbox: {{num}}
         <button ng-click="checkNumber()">Check number</button>
         <br />
