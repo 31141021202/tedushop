@@ -18,6 +18,11 @@ namespace TeduShop.Web.Mappings
                 cfg.CreateMap<PostCategory, PostCategoryViewModel>();
                 cfg.CreateMap<Tag, TagViewModel>();
                 cfg.CreateMap<PostTag, PostTagViewModel>();
+
+                cfg.CreateMap<Product, ProductViewModel>();
+                cfg.CreateMap<ProductTag, ProductTagViewModel>();
+                cfg.CreateMap<ProductCategory, ProductCategoryViewModel>();
+
             });
 
             //var config = new MapperConfiguration(cfg => 
