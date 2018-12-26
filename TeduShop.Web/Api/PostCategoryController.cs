@@ -43,7 +43,7 @@ namespace TeduShop.Web.Api
             return CreateHttpResponse(request, () => 
             {
                 HttpResponseMessage response = null;
-                if (ModelState.IsValid)
+                if (!ModelState.IsValid)
                 {
                     request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);   
                 }
@@ -51,10 +51,11 @@ namespace TeduShop.Web.Api
                 {
                     PostCategory newPostCategory = new PostCategory();
                     newPostCategory.UpdatePostCategory(postCategoryVm);
-                    var category = _postCategoryService.Add(newPostCategory);
+                    _postCategoryService.Add(newPostCategory);
                     _postCategoryService.Save();
 
-                    response = request.CreateResponse(HttpStatusCode.Created, category);
+                    var responseData = Mapper.Map<PostCategoryViewModel>(newPostCategory);
+                    response = request.CreateResponse(HttpStatusCode.Created, responseData);
                 }
                 return response;
             });
