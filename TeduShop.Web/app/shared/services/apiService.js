@@ -7,7 +7,8 @@
         return {
             get: get,
             post: post,
-            put: put
+            put: put,
+            del: del
         }
 
         function get(url, params, success, failure) {
@@ -41,7 +42,20 @@
                 else if (failure != null) {
                     failure(error);
                 }
-                });
+            });
+        }
+
+        function del(url, params, success, failuer) {
+            $http.delete(url, params).then(function (result) {
+                success(result);
+            }, function (error) {
+                if (error.status === 401) {
+                    notificationService.displayError('Authentication is required.');
+                }
+                else if (failure != null) {
+                    failure(error);
+                }
+            });
         }
     }
 })(angular.module('tedushop.common'));
