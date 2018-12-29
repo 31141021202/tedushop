@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Script.Serialization;
 using TeduShop.Model.Models;
 using TeduShop.Service;
 using TeduShop.Web.Infrastructure.Core;
@@ -149,6 +150,34 @@ namespace TeduShop.Web.Api
 
                     var responseData = Mapper.Map<ProductCategoryViewModel>(dbProductCategory);
                     response = request.CreateResponse(HttpStatusCode.OK, responseData);
+                }
+                return response;
+            });
+        }
+
+        [Route("deletemulti")]
+        [HttpDelete]
+        [AllowAnonymous]
+        public HttpResponseMessage DeleteMulti(HttpRequestMessage request, string listId)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    response = request.CreateResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var ids = new JavaScriptSerializer().Deserialize<List<int>>(listId);
+
+                    foreach (var id in ids)
+                    {
+                        var dbProductCategory = _productCategoryService.Delete(id);
+                    }
+                    _productCategoryService.Save();
+
+                    response = request.CreateResponse(HttpStatusCode.OK, ids.Count);
                 }
                 return response;
             });
