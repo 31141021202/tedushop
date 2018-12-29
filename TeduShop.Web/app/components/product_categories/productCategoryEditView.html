@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Tên danh mục</label>
                     <div class="col-sm-10">
-                        <input type="text" required ng-maxlength="256" class="form-control" ng-change="GetSeoTitle()" name="name" ng-model="productCategory.Name">
+                        <input type="text" required ng-maxlength="256" class="form-control" name="name" ng-model="productCategory.Name">
                         <span ng-show="frmUpdateProductCategory.name.$invalid" class="has-error">Phải nhập tên danh mục</span>
                         <span ng-show="frmUpdateProductCategory.name.$error.maxlength" class="has-error">Tên danh mục chỉ được 256 ký tự</span>
                     </div>
@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">Tiêu đề SEO</label>
                     <div class="col-sm-10">
-                        <input type="text" required ng-maxlength="256" class="form-control" name="alias" ng-model="productCategory.Alias">
+                        <input type="text" required ng-maxlength="256" class="form-control" ng-change="GetSeoTitle()" name="alias" ng-model="productCategory.Alias">
                         <span ng-show="frmUpdateProductCategory.alias.$invalid" class="has-error">Phải nhập tiêu đề SEO</span>
                         <span ng-show="frmUpdateProductCategory.alias.$error.maxlength" class="has-error">Tiêu đề SEO chỉ được 256 ký tự</span>
                     </div>
