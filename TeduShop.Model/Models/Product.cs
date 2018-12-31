@@ -25,6 +25,8 @@ namespace TeduShop.Model.Models
         [ForeignKey("CategoryID")]
         public virtual ProductCategory ProductCategory { get; set; }
 
+        public string Tags { get; set; }
+
         [MaxLength(256)]
         public string Image { get; set; }
 

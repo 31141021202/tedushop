@@ -73,6 +73,7 @@ namespace TeduShop.Web.Infrastructure.Extensions
             product.Name = productVm.Name;
             product.Alias = productVm.Alias;
             product.CategoryID = productVm.CategoryID;
+            product.Tags = productVm.Tags;
             product.Image = productVm.Image;
             product.MoreImages = productVm.MoreImages;
             product.Price = productVm.Price;

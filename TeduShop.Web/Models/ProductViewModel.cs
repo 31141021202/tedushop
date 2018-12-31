@@ -12,6 +12,7 @@ namespace TeduShop.Web.Models
         public string Alias { get; set; }
         public int CategoryID { get; set; }
         public virtual ProductCategoryViewModel ProductCategory { get; set; }
+        public string Tags { get; set; }
         public string Image { get; set; }
         public string MoreImages { get; set; }
         public decimal Price { get; set; }
