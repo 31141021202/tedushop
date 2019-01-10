@@ -21,28 +21,28 @@ namespace TeduShop.Data.Migrations
             CreateProductCategorySample(context);
             //  This method will be called after migrating to the latest version.
 
-            //var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new TeduShopDbContext()));
-            //var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new TeduShopDbContext()));
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new TeduShopDbContext()));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new TeduShopDbContext()));
 
-            //var user = new ApplicationUser()
-            //{
-            //    UserName = "tedu",
-            //    Email = "tedu.international@gmail.com",
-            //    EmailConfirmed = true,
-            //    Birthday = DateTime.Now,
-            //    FullName = "Technology Education"
-            //};
+            var user = new ApplicationUser()
+            {
+                UserName = "tedu",
+                Email = "tedu.international@gmail.com",
+                EmailConfirmed = true,
+                Birthday = DateTime.Now,
+                FullName = "Technology Education"
+            };
 
-            //manager.Create(user, "123456");
+            manager.Create(user, "123456");
 
-            //if (!roleManager.Roles.Any())
-            //{
-            //    roleManager.Create(new IdentityRole { Name = "Admin" });
-            //    roleManager.Create(new IdentityRole { Name = "User" });
-            //}
+            if (!roleManager.Roles.Any())
+            {
+                roleManager.Create(new IdentityRole { Name = "Admin" });
+                roleManager.Create(new IdentityRole { Name = "User" });
+            }
 
-            //var adminUser = manager.FindByEmail("tedu.international@gmail.com");
-            //manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
+            var adminUser = manager.FindByEmail("tedu.international@gmail.com");
+            manager.AddToRoles(adminUser.Id, new string[] { "Admin", "User" });
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
